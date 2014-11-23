@@ -1,7 +1,9 @@
 {
   "name": "picenter",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "gpio": "^0.2.5"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",

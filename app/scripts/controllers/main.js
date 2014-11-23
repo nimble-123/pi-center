@@ -9,7 +9,8 @@
  */
 angular.module('piCenterApp')
   .controller('MainCtrl', function ($scope) {
-  	console.log("main.js controller aufgerufen");
+  	console.log('main.js controller aufgerufen');
+
     $scope.gpios = [{number: 0, direction: 'in', value: 0},
 					{number: 1, direction: 'in', value: 0},
 					{number: 2, direction: 'in', value: 0},
@@ -20,26 +21,25 @@ angular.module('piCenterApp')
 					{number: 7, direction: 'in', value: 0}];
 
     $scope.switchDir = function(gpio) {
-    	console.log("switchDir aufgerufen");
-    	if (gpio.direction == 'in') {
-    		// gpio schalten durch shelljs oder pi-gpio nodejs module
+       if (gpio.direction === 'in') {
+            
     		gpio.direction = 'out';
-    	} else{
-    		// gpio schalten durch shelljs oder pi-gpio nodejs module
-    		gpio.direction = 'in';
-    	};
-    	
+        } else{
+            
+            gpio.direction = 'in';
+    	}
+        console.log('GPIO ' + gpio.number + ' mode switched to ' + ((gpio.direction === 'in') ? 'in' : 'out'));
     };
 
     $scope.switchPow = function(gpio) {
-    	console.log("switchPow aufgerufen");
-    	if (gpio.value == 0) {
+    	if (gpio.value === 0) {
     		// gpio schalten durch shelljs oder pi-gpio nodejs module
     		gpio.value = 1;
     	} else{
     		// gpio schalten durch shelljs oder pi-gpio nodejs module
     		gpio.value = 0;
-    	};
+    	}
+        console.log('GPIO ' + gpio.number + ' power switched to ' + ((gpio.value === 1) ? 'on' : 'off'));
     };
 
   });
